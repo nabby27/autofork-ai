@@ -42,6 +42,15 @@ add deps:
 	@docker compose run --rm {{SERVICE}} chown -R node:node .
 
 [doc('
+    Add a new shadcn component to the project.
+    ex:
+        just shadcn-add "button"
+')]
+shadcn-add deps:
+	@docker compose run --rm {{SERVICE}} npx shadcn@latest add {{deps}}
+	@docker compose run --rm {{SERVICE}} chown -R node:node .
+
+[doc('
     Run the linter.
     ex:
         just lint
