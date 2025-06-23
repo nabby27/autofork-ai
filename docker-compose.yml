@@ -1,0 +1,15 @@
+services:
+  autofork:
+    image: node:24
+    container_name: autofork
+    working_dir: '/app'
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    networks:
+      - autofork__network
+
+networks:
+  autofork__network:
+    name: autofork__network
