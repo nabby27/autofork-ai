@@ -1,10 +1,6 @@
 import { SocialButton } from "./SocialButton"
-import { XBrandLogo } from "../_logos/XBrandLogo"
-import { LinkedInBrandLogo } from "../_logos/LinkedInBrandLogo"
-import { FacebookBrandLogo } from "../_logos/FacebookInBrandLogo"
 import { ClipboardShareButton } from "./ClipboardShareButton"
-import { WhatsAppBrandLogo } from "../_logos/WhatsAppBrandLogo"
-import { TelegramBrandLogo } from "../_logos/TelegramBrandLogo"
+import { Facebook, LinkedIn, Telegram, Twitter, WhatsApp } from "@ridemountainpig/svgl-react"
 
 export function SocialShare() {
     return (
@@ -19,33 +15,33 @@ export function SocialShare() {
                     <SocialButton
                         platform="twitter"
                         text="Share on X"
-                        icon={<XBrandLogo />}
+                        icon={<Twitter />}
                         shareText="🚀 Just discovered AutoFork - it transforms any video or audio into endless content automatically! Perfect for content creators who want to multiply their reach without the manual work. Join the waitlist: "
                     />
                     
                     <SocialButton
                         platform="linkedin"
                         text="Share on LinkedIn"
-                        icon={<LinkedInBrandLogo />}
+                        icon={<LinkedIn />}
                     />
 
                     <SocialButton
                         platform="facebook"
                         text="Share on Facebook"
-                        icon={<FacebookBrandLogo />}
+                        icon={<Facebook />}
                     />
 
                     <SocialButton
                         platform="whatsapp"
                         text="Share on WhatsApp"
-                        icon={<WhatsAppBrandLogo />}
+                        icon={<WhatsApp />}
                         shareText="🚀 Just discovered AutoFork - it transforms any video or audio into endless content automatically! Perfect for content creators who want to multiply their reach without the manual work. Join the waitlist: "
                     />
 
                     <SocialButton
                         platform="telegram"
                         text="Share on Telegram"
-                        icon={<TelegramBrandLogo />}
+                        icon={<Telegram />}
                         shareText="🚀 Just discovered AutoFork - it transforms any video or audio into endless content automatically! Perfect for content creators who want to multiply their reach without the manual work. Join the waitlist: "
                     />
 

@@ -1,4 +1,4 @@
-import { SERVER_CONFIG } from "@/app/config/SERVER_CONFIG";
+import { SERVER_CONFIG } from "@/config/SERVER_CONFIG";
 import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 

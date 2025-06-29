@@ -5,10 +5,7 @@ import { cn } from "@/shadcn/lib/utils";
 import { PlayCircle } from "lucide-react";
 import { forwardRef, useRef } from "react";
 import Image from "next/image";
-import { GmailBrandLogo } from "../_logos/GmailBrandLogo";
-import { LinkedInBrandLogo } from "../_logos/LinkedInBrandLogo";
-import { XBrandLogo } from "../_logos/XBrandLogo";
-import { WordPressBrandLogo } from "../_logos/WordPressBrandLogo";
+import { Gmail, LinkedIn, Twitter, WordPress } from "@ridemountainpig/svgl-react";
 
 const Circle = forwardRef<
     HTMLDivElement,
@@ -69,16 +66,16 @@ export function HeroAnimatedBeam({
                 </div>
                 <div className="flex flex-col justify-center gap-2">
                     <Circle ref={linkedinIconRef}>
-                        <LinkedInBrandLogo size={24} />
+                        <LinkedIn />
                     </Circle>
                     <Circle ref={xIconRef}>
-                        <XBrandLogo size={24} />
+                        <Twitter />
                     </Circle>
                     <Circle ref={gmailIconRef}>
-                        <GmailBrandLogo size={24} />
+                        <Gmail />
                     </Circle>
                     <Circle ref={wordpressIconRef}>
-                        <WordPressBrandLogo size={24} />
+                        <WordPress />
                     </Circle>
                 </div>
             </div>

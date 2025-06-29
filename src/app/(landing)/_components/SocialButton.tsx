@@ -1,5 +1,5 @@
 import { Button } from "@/shadcn/components/ui/button"
-import { CLIENT_CONFIG } from "../config/CLIENT_CONFIG"
+import { CLIENT_CONFIG } from "../../../config/CLIENT_CONFIG"
 
 export function SocialButton({
     platform,

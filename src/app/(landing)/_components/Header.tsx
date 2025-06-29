@@ -1,6 +1,6 @@
-import { SERVER_CONFIG } from "@/app/config/SERVER_CONFIG"
-import { GitHubBrandLogo } from "../_logos/GitHubBrandLogo"
+import { SERVER_CONFIG } from "@/config/SERVER_CONFIG"
 import Image from "next/image"
+import { GitHubLight } from "@ridemountainpig/svgl-react"
 
 export function Header() {
     return (
@@ -27,7 +27,7 @@ export function Header() {
                         className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-md hover:bg-gray-100"
                         aria-label="View source on GitHub"
                     >
-                        <GitHubBrandLogo size={24} />
+                        <GitHubLight className="w-6 h-6" />
                     </a>
                 </div>
             </div>

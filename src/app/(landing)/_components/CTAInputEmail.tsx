@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/shadcn/components/ui/button"
 import { Input } from "@/shadcn/components/ui/input"
 import { CheckCircle, Loader2 } from "lucide-react"
-import { useUTMParams } from "../_hooks/useUTMParams"
+import { useUTMParams } from "../../../hooks/useUTMParams"
 
 export function CTAInputEmail() {
     const [email, setEmail] = useState("")
