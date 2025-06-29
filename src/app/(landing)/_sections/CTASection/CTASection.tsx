@@ -1,6 +1,6 @@
 import { CTAInputEmail } from "./CTAInputEmail"
 
-export function CTA() {
+export function CTASection() {
     return (
         <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
             <div className="container mx-auto px-4 text-center">

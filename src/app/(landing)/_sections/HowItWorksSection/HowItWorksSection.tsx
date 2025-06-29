@@ -9,7 +9,7 @@ import {
     Video,
 } from "lucide-react"
 
-export function HowItWorks() {
+export function HowItWorksSection() {
     return (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">

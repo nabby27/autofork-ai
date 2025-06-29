@@ -1,10 +1,10 @@
 import { Badge } from "@/shadcn/components/ui/badge"
 import { Clock, Languages, Zap } from "lucide-react"
-import { HeroInputEmail } from "./HeroInputEmail"
 import { HeroAnimatedBeam } from "./HeroAnimatedBeam"
 import { ShineBorder } from "@/shadcn/components/magicui/shine-border"
+import { HeroInputEmail } from "./HeroInputEmail"
 
-export function Hero() {
+export function HeroSection() {
     return (
         <section className="pt-10 pb-20 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4 text-center">

@@ -2,7 +2,7 @@ import { SocialButton } from "./SocialButton"
 import { ClipboardShareButton } from "./ClipboardShareButton"
 import { Facebook, LinkedIn, Telegram, Twitter, WhatsApp } from "@ridemountainpig/svgl-react"
 
-export function SocialShare() {
+export function ShareSection() {
     return (
         <section className="py-16 bg-white border-t border-gray-100">
             <div className="container mx-auto px-4 text-center">
