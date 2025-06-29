@@ -3,6 +3,7 @@ import { GLOBAL_CONFIG } from "./GLOBAL_CONFIG";
 export const SERVER_CONFIG = {
     ...GLOBAL_CONFIG,
     ENV: {
+        ...GLOBAL_CONFIG.ENV,
         GSHEET_CLIENT_EMAIL: process.env.GSHEET_CLIENT_EMAIL,
         GSHEET_PRIVATE_KEY: process.env.GSHEET_PRIVATE_KEY?.replace(/\\n/g, "\n"),
         GSHEET_PROJECT_ID: process.env.GSHEET_PROJECT_ID,

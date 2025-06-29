@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: SERVER_CONFIG.APP_TITLE,
     description: SERVER_CONFIG.APP_DESCRIPTION,
     images: ["/assets/og-image.png"],
-    url: SERVER_CONFIG.APP_URL,
+    url: SERVER_CONFIG.ENV.APP_URL,
     siteName: SERVER_CONFIG.APP_NAME,
     locale: "en_US",
     type: "website",

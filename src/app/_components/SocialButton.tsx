@@ -19,7 +19,7 @@ export function SocialButton({
             utm_campaign: 'prelaunch',
         })
 
-        const urlWithUTM = `${CLIENT_CONFIG.APP_URL}?${utmParams.toString()}`
+        const urlWithUTM = `${CLIENT_CONFIG.ENV.APP_URL}?${utmParams.toString()}`
 
         const platformUrls = {
             twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(urlWithUTM)}`,

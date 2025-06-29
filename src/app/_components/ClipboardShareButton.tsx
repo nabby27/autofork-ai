@@ -17,7 +17,7 @@ export function ClipboardShareButton() {
             utm_campaign: 'prelaunch',
         })
 
-        const url = `${CLIENT_CONFIG.APP_URL}?${utmParams.toString()}`
+        const url = `${CLIENT_CONFIG.ENV.APP_URL}?${utmParams.toString()}`
 
         await navigator.clipboard.writeText(url)
         setIsCopied(true)
