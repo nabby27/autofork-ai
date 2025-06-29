@@ -1,7 +1,5 @@
 "use client"
 
-import { useEffect, useState } from "react"
-
 const STORAGE_KEY = 'autofork.utm_params'
 
 export interface SourceUTMs {
