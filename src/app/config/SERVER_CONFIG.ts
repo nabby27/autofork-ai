@@ -1,0 +1,13 @@
+import { GLOBAL_CONFIG } from "./GLOBAL_CONFIG";
+
+export const SERVER_CONFIG = {
+    ...GLOBAL_CONFIG,
+    ENV: {
+        GSHEET_CLIENT_EMAIL: process.env.GSHEET_CLIENT_EMAIL,
+        GSHEET_PRIVATE_KEY: process.env.GSHEET_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+        GSHEET_PROJECT_ID: process.env.GSHEET_PROJECT_ID,
+        GSHEET_SPREADSHEET_ID: process.env.GSHEET_SPREADSHEET_ID,
+        SLACK_BOT_OAUTH_TOKEN: process.env.SLACK_BOT_OAUTH_TOKEN,
+        SLACK_NOTIFY_NEW_LEAD_CHANNEL: process.env.SLACK_NOTIFY_NEW_LEAD_CHANNEL,
+    }
+}
