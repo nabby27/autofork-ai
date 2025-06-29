@@ -1,33 +1,33 @@
-import { config } from "@/config";
+import { SERVER_CONFIG } from "@/config/serverConfig";
 import { Metadata } from "next";
 
 export function getMetadata(metas?: Partial<Metadata>): Metadata {
     return {
-        title: config.app.title,
-        description: config.app.description,
-        keywords: config.app.keywords,
-        applicationName: config.app.name,
-        metadataBase: new URL(config.app.url),
+        title: SERVER_CONFIG.APP.TITLE,
+        description: SERVER_CONFIG.APP.DESCRIPTION,
+        keywords: SERVER_CONFIG.APP.KEYWORDS,
+        applicationName: SERVER_CONFIG.APP.NAME,
+        metadataBase: new URL(SERVER_CONFIG.APP.URL),
         openGraph: {
-            title: config.app.title,
-            description: config.app.description,
+            title: SERVER_CONFIG.APP.TITLE,
+            description: SERVER_CONFIG.APP.DESCRIPTION,
             images: ["/assets/og-image.png"],
-            url: config.app.url,
-            siteName: config.app.name,
+            url: SERVER_CONFIG.APP.URL,
+            siteName: SERVER_CONFIG.APP.NAME,
             locale: "en_US",
             type: "website",
             ...metas?.openGraph,
         },
         twitter: {
-            title: config.app.title,
-            description: config.app.description,
+            title: SERVER_CONFIG.APP.TITLE,
+            description: SERVER_CONFIG.APP.DESCRIPTION,
             images: ["/assets/og-image.png"],
             card: "summary_large_image",
             creator: "@nabby27",
             ...metas?.twitter,
         },
         alternates: {
-            canonical: config.app.url,
+            canonical: SERVER_CONFIG.APP.URL,
             ...metas?.alternates,
         },
         icons: {

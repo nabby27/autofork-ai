@@ -3,7 +3,7 @@
 import { Button } from "@/shadcn/components/ui/button"
 import { useEffect, useState } from "react"
 import { CheckIcon, Loader2Icon } from "lucide-react"
-import { config } from "@/config"
+import { CLIENT_CONFIG } from "@/config/clientConfig"
 
 export function ClipboardShareButton() {
     const [isCopied, setIsCopied] = useState(false)
@@ -17,7 +17,7 @@ export function ClipboardShareButton() {
             utm_campaign: 'prelaunch',
         })
 
-        const url = `${config.app.url}?${utmParams.toString()}`
+        const url = `${CLIENT_CONFIG.APP.URL}?${utmParams.toString()}`
 
         await navigator.clipboard.writeText(url)
         setIsCopied(true)

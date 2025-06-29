@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { GitHubLight } from "@ridemountainpig/svgl-react"
-import { config } from "@/config"
+import { SERVER_CONFIG } from "@/config/serverConfig"
 
 export function Header() {
     return (
@@ -16,12 +16,12 @@ export function Header() {
                             className="object-contain"
                         />
                     </div>
-                    <span className="text-xl font-bold text-gray-900">{config.app.name}</span>
+                    <span className="text-xl font-bold text-gray-900">{SERVER_CONFIG.APP.NAME}</span>
                 </div>
 
                 <div className="flex items-center">
                     <a 
-                        href={config.app.githubRepoUrl} 
+                        href={SERVER_CONFIG.APP.GITHUB_REPO_URL} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-md hover:bg-gray-100"

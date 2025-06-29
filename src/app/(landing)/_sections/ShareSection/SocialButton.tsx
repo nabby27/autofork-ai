@@ -1,4 +1,4 @@
-import { config } from "@/config"
+import { SERVER_CONFIG } from "@/config/serverConfig"
 import { Button } from "@/shadcn/components/ui/button"
 
 export function SocialButton({
@@ -19,7 +19,7 @@ export function SocialButton({
             utm_campaign: 'prelaunch',
         })
 
-        const urlWithUTM = `${config.app.url}?${utmParams.toString()}`
+        const urlWithUTM = `${SERVER_CONFIG.APP.URL}?${utmParams.toString()}`
 
         const platformUrls = {
             twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(urlWithUTM)}`,
