@@ -18,32 +18,23 @@ export interface ContextUTMs {
 export interface UTMs extends SourceUTMs, ContextUTMs { }
 
 export function useUTMParams(contextUTMs: ContextUTMs): Partial<UTMs> {
-    const [utmParams, setUtmParams] = useState<Partial<UTMs>>(contextUTMs)
-
-    useEffect(() => {
-        const utms = getUTMs(contextUTMs)
-        setUtmParams(utms)
-    }, [contextUTMs])
-
-    return utmParams
-}
-
-function getUTMs(contextUTMs: ContextUTMs): Partial<UTMs> {
     const urlSourceUTMs = getSourceUTMsFromURL()
     if (urlSourceUTMs) {
         saveSourceUTMsToStorage(urlSourceUTMs)
         return mixUTMs(urlSourceUTMs, contextUTMs)
     }
-    
+
     const storedSourceUTMs = getStoredSourceUTMs()
     if (storedSourceUTMs) {
         return mixUTMs(storedSourceUTMs, contextUTMs)
     }
-    
+
     return contextUTMs
 }
 
 function getSourceUTMsFromURL(): SourceUTMs | null {
+    if (typeof window === "undefined") return null
+
     const urlParams = new URLSearchParams(window.location.search)
     
     const sourceUTMs: SourceUTMs = {
@@ -53,14 +44,16 @@ function getSourceUTMsFromURL(): SourceUTMs | null {
     }
     
     const hasSourceUTM = Object.values(sourceUTMs).some(value => value !== '')
-    if (hasSourceUTM) {
-        return sourceUTMs
+    if (!hasSourceUTM) {
+        return null
     }
-
-    return null
+    
+    return sourceUTMs
 }
 
 function getStoredSourceUTMs(): SourceUTMs | null {
+    if (typeof window === "undefined") return null
+
     try {
         const stored = sessionStorage.getItem(STORAGE_KEY)
         return stored ? JSON.parse(stored) : null
@@ -70,6 +63,8 @@ function getStoredSourceUTMs(): SourceUTMs | null {
 }
 
 function saveSourceUTMsToStorage(sourceUTMs: SourceUTMs): void {
+    if (typeof window === "undefined") return
+
     try {
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(sourceUTMs))
     } catch {
@@ -77,7 +72,7 @@ function saveSourceUTMsToStorage(sourceUTMs: SourceUTMs): void {
     }
 }
 
-export function mixUTMs(sourceUTMs: SourceUTMs, contextUTMs: ContextUTMs): UTMs {
+function mixUTMs(sourceUTMs: SourceUTMs, contextUTMs: ContextUTMs): UTMs {
     return {
         ...sourceUTMs,
         ...contextUTMs
