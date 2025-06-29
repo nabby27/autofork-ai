@@ -8,15 +8,17 @@ import { Input } from "@/shadcn/components/ui/input"
 import { CheckCircle, Loader2 } from "lucide-react"
 import { useUTMParams } from "@/hooks/useUTMParams"
 
+const contextUTMs = {
+    utm_content: "hero_section",
+    utm_term: "join-waitlist",
+}
+
 export function HeroInputEmail() {
     const [email, setEmail] = useState("")
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
-    const utms = useUTMParams({
-        utm_content: "hero_section",
-        utm_term: "join-waitlist",
-    })
+    const utms = useUTMParams(contextUTMs)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
