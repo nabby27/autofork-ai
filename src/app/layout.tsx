@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SERVER_CONFIG } from "../config/SERVER_CONFIG";
 import { Toaster } from "@/shadcn/components/ui/sonner"
+import { config } from "@/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,15 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: SERVER_CONFIG.APP_TITLE,
-  description: SERVER_CONFIG.APP_DESCRIPTION,
-  keywords: SERVER_CONFIG.APP_KEYWORDS,
+  title: config.app.title,
+  description: config.app.description,
+  keywords: config.app.keywords,
   openGraph: {
-    title: SERVER_CONFIG.APP_TITLE,
-    description: SERVER_CONFIG.APP_DESCRIPTION,
+    title: config.app.title,
+    description: config.app.description,
     images: ["/assets/og-image.png"],
-    url: SERVER_CONFIG.ENV.APP_URL,
-    siteName: SERVER_CONFIG.APP_NAME,
+    url: config.app.url,
+    siteName: config.app.name,
     locale: "en_US",
     type: "website",
   },

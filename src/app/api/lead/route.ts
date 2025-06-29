@@ -1,37 +1,32 @@
-import { SERVER_CONFIG } from "@/config/SERVER_CONFIG";
+import { config } from "@/config";
+import { UTMs } from "@/hooks/useUTMParams";
 import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
-
-type UTMs = {
-    utm_source: string;
-    utm_medium: string;
-    utm_campaign: string;
-    utm_content: string;
-    utm_term: string;
-}
 
 export async function POST(request: NextRequest) {
     const { email, utms } = await request.json();
 
-    await saveData(email, utms);
-    await notifyNewLead();
+    await Promise.all([
+        saveData(email, utms),
+        notifyNewLead()
+    ]);
 
     return new NextResponse(null, { status: 204 });
 }
 
 async function saveData(email: string, utms: UTMs) {
     const auth = new google.auth.GoogleAuth({
-        projectId: SERVER_CONFIG.ENV.GSHEET_PROJECT_ID,
+        projectId: config.gsheet.projectId,
         scopes: 'https://www.googleapis.com/auth/spreadsheets',
         credentials: {
-            client_email: SERVER_CONFIG.ENV.GSHEET_CLIENT_EMAIL,
-            private_key: SERVER_CONFIG.ENV.GSHEET_PRIVATE_KEY,
+            client_email: config.gsheet.clientEmail,
+            private_key: config.gsheet.privateKey,
         }
     })
     const sheets = google.sheets({ version: "v4", auth });
 
     sheets.spreadsheets.values.append({
-        spreadsheetId: SERVER_CONFIG.ENV.GSHEET_SPREADSHEET_ID,
+        spreadsheetId: config.gsheet.spreadsheetId,
         range: "Sheet1!A1:B1",
         valueInputOption: "USER_ENTERED",
         requestBody: {
@@ -43,23 +38,16 @@ async function saveData(email: string, utms: UTMs) {
 }
 
 async function notifyNewLead() {
-    const res = await fetch('https://slack.com/api/chat.postMessage', {
+    await fetch('https://slack.com/api/chat.postMessage', {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${SERVER_CONFIG.ENV.SLACK_BOT_OAUTH_TOKEN}`,
+            'Authorization': `Bearer ${config.slack.botOauthToken}`,
             'Content-Type': 'application/json',
             'charset': 'utf-8'
         },
         body: JSON.stringify({
-            channel: SERVER_CONFIG.ENV.SLACK_NOTIFY_NEW_LEAD_CHANNEL,
+            channel: config.slack.newLeadChannel,
             text: "New lead arrived 🎉"
         })
     });
-
-    if (!res.ok) {
-        console.error('Failed to notify new lead', res);
-    }
-    
-    const data = await res.json();
-    console.log('Notified new lead', data);
 }

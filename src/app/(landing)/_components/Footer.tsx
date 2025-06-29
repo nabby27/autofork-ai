@@ -1,7 +1,7 @@
 import { Mail } from "lucide-react"
-import { SERVER_CONFIG } from "../../../config/SERVER_CONFIG"
 import Image from "next/image"
 import { GitHubDark } from "@ridemountainpig/svgl-react"
+import { config } from "@/config"
 
 export function Footer() {
     return (
@@ -18,19 +18,19 @@ export function Footer() {
                                 className="object-contain"
                             />
                         </div>  
-                        <span className="text-xl font-bold">{SERVER_CONFIG.APP_NAME}</span>
+                        <span className="text-xl font-bold">{config.app.name}</span>
                     </div>
 
                     <div className="flex items-center space-x-4">
                         <a 
-                            href={`mailto:${SERVER_CONFIG.SUPPORT_EMAIL}`} 
+                            href={`mailto:${config.app.supportEmail}`} 
                             className="p-2 text-gray-400 hover:text-white transition-colors rounded-md hover:bg-gray-800"
                             aria-label="Contact us via email"
                         >
                             <Mail className="w-6 h-6 text-white" />
                         </a>
                         <a 
-                            href={SERVER_CONFIG.GITHUB_REPO_URL} 
+                            href={config.app.githubRepoUrl} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="p-2 text-gray-400 hover:text-white transition-colors rounded-md hover:bg-gray-800"

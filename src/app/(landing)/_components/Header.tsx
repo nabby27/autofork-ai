@@ -1,6 +1,6 @@
-import { SERVER_CONFIG } from "@/config/SERVER_CONFIG"
 import Image from "next/image"
 import { GitHubLight } from "@ridemountainpig/svgl-react"
+import { config } from "@/config"
 
 export function Header() {
     return (
@@ -16,12 +16,12 @@ export function Header() {
                             className="object-contain"
                         />
                     </div>
-                    <span className="text-xl font-bold text-gray-900">{SERVER_CONFIG.APP_NAME}</span>
+                    <span className="text-xl font-bold text-gray-900">{config.app.name}</span>
                 </div>
 
                 <div className="flex items-center">
                     <a 
-                        href={SERVER_CONFIG.GITHUB_REPO_URL} 
+                        href={config.app.githubRepoUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-md hover:bg-gray-100"

@@ -15,10 +15,10 @@ export interface ContextUTMs {
     utm_term: string
 }
 
-export interface UTMParams extends SourceUTMs, ContextUTMs { }
+export interface UTMs extends SourceUTMs, ContextUTMs { }
 
-export function useUTMParams(contextUTMs: ContextUTMs): Partial<UTMParams> {
-    const [utmParams, setUtmParams] = useState<Partial<UTMParams>>(contextUTMs)
+export function useUTMParams(contextUTMs: ContextUTMs): Partial<UTMs> {
+    const [utmParams, setUtmParams] = useState<Partial<UTMs>>(contextUTMs)
 
     useEffect(() => {
         const utms = getUTMs(contextUTMs)
@@ -28,7 +28,7 @@ export function useUTMParams(contextUTMs: ContextUTMs): Partial<UTMParams> {
     return utmParams
 }
 
-function getUTMs(contextUTMs: ContextUTMs): Partial<UTMParams> {
+function getUTMs(contextUTMs: ContextUTMs): Partial<UTMs> {
     const urlSourceUTMs = getSourceUTMsFromURL()
     if (urlSourceUTMs) {
         saveSourceUTMsToStorage(urlSourceUTMs)
@@ -77,7 +77,7 @@ function saveSourceUTMsToStorage(sourceUTMs: SourceUTMs): void {
     }
 }
 
-export function mixUTMs(sourceUTMs: SourceUTMs, contextUTMs: ContextUTMs): UTMParams {
+export function mixUTMs(sourceUTMs: SourceUTMs, contextUTMs: ContextUTMs): UTMs {
     return {
         ...sourceUTMs,
         ...contextUTMs
