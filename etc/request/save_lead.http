@@ -1,0 +1,44 @@
+# Save lead that has been referred by a Twitter user and converted in HERO section
+POST http://localhost:3000/api/lead
+Content-Type: application/json
+
+{
+    "email": "twitter_user@test.com",
+    "utms": {
+        "utm_source": "twitter",
+        "utm_medium": "social",
+        "utm_campaign": "prelaunch",
+        "utm_content": "hero_section",
+        "utm_term": "join-waitlist"
+    }
+}
+
+# Save lead that has been referred by a Twitter user and converted in CTA section
+POST http://localhost:3000/api/lead
+Content-Type: application/json
+
+{
+    "email": "twitter_user@test.com",
+    "utms": {
+        "utm_source": "twitter",
+        "utm_medium": "social", 
+        "utm_campaign": "prelaunch",
+        "utm_content": "cta_section",
+        "utm_term": "get-early-access"
+    }
+}
+
+# Save lead that hasn't been referred by any user and converted in CTA section
+POST http://localhost:3000/api/lead
+Content-Type: application/json
+
+{
+    "email": "direct_user@test.com",
+    "utms": {
+        "utm_source": "autofork",
+        "utm_medium": "web",
+        "utm_campaign": "prelaunch",
+        "utm_content": "cta_section",
+        "utm_term": "get-early-access"
+    }
+}
